@@ -1,0 +1,21 @@
+body {
+	margin: 0px;
+}
+
+section {
+	margin: 0px;
+}
+
+h1 {
+	margin: 0px;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+ul {
+  	padding: 0px;
+  	list-style-type: none;
+}

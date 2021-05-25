@@ -1,42 +1,46 @@
 ul {
-  list-style-type: none;
+  display: flex;
+  flex-direction: row;
 }
+
+li {
+	color: white;
+	margin-left: 40px;
+	font-family: "Courier New";
+	font-size: 18px;
+}
+
+.main-container {
+	background-color: purple;
+	height: 95vh;
+}
+
 /* 
 ====== 
 Navbar
 ======
 */
 .navbar {
-  background: var(--mainWhite);
-  height: 5rem;
-  display: flex;
-  align-items: center;
-  border-bottom: 2px solid var(--primaryColor);
-  box-shadow: var(--lightShadow);
+	background-color: black;
+	height: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.nav-center {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: var(--smallWidth);
-  margin: 0 auto;
-  max-width: var(--fullWidth);
+
+.navbar-center {
+	display: flex;
+	flex-direction: row;
+  	justify-content: center;
 }
-.nav-links {
-  display: flex;
-  align-items: center;
-}
-.nav-links a {
-  text-transform: capitalize;
-  display: inline-block;
-  font-weight: bold;
-  margin-right: 0.5rem;
-  font-weight: 400;
-  letter-spacing: 2px;
-  font-size: 1.2rem;
-  padding: 0.25rem 0.5rem;
-  transition: var(--mainTransition);
-}
-.nav-links a:hover {
-  color: var(--primaryColor);
+
+/*** HOME PAGE ***/
+
+
+/*** ABOUT PAGE ***/
+.section-container {
+	color: white;
+	padding: 50px;
+	font-family: "Garamond";
+	font-size: 18px;
 }

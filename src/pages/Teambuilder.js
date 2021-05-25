@@ -2,7 +2,9 @@ import React from 'react'
 
 const Teambuilder = () => {
 	return (
-		<div> Work In Progress </div>
+		<div className="main-container">
+			Work in progress
+		</div>
 	)
 }
 

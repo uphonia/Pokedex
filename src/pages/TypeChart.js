@@ -2,7 +2,9 @@ import React from 'react'
 
 const TypeChart = () => {
 	return (
-		<div> Work In Progress </div>
+		<div className="main-container">
+			Work in progress
+		</div>
 	)
 }
 
