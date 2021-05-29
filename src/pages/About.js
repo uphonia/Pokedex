@@ -6,11 +6,11 @@ const About = () => {
 			<section className="section-container">
 				<h1 className="section-title">About This Project</h1>
 				<p> 
-					{"This is a personal project on something I am passionate about -- Pokemon. I'm a long-time fan of the Pokemon franchise, from the TV show to the games. When I play the games, I often look up on more information on Bulbapedia (online Pokemon encyclopedia) about the qualities of the Pokemon that I encounter. For competitive battling, there are sites that help with team building and testing. Team testing will not be implemented here."}
+					{"This is a personal project on something I am passionate about -- Pokemon. I'm a long-time fan of the Pokemon franchise, from the TV show to the games. What I really want to focus on is the side experience while playing the games. There is a lot more to these virtual creatures than the pixels on the screen. Because of this, there are many resources out there that bring you to a deeper level, especially once you get into competitive battling. Such resources that I've used are Bulbapedia, Smogon, and Pokemon Showdown."}
 				</p>
 				{"\n"}
 				<p>
-					{"This project came to be because I thought it would be a good idea to put together the features of Bulbapedia and a team builder. It is also a fun way for me to showcase my web development skills and bring in my new learned knowledge of React. The information of Pokemon is gathered from "}
+					{"This project came to be because I thought it would be a good idea to put together the above resources under one website. The information of Pokemon is gathered from "}
 						<a href="https://pokeapi.co/api/v2/"><u>{"https://pokeapi.co/api/v2/"}</u></a>
 				</p>
 			</section>
