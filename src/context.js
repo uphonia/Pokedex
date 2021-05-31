@@ -6,7 +6,7 @@ const url = "https://pokeapi.co/api/v2/"
 const AppProvider = ({children}) => {
 	const [searchTerm, setSearchTerm] = useState("bulbasaur");
 	const [pokemonInfo, setPokemonInfo] = useState([]);
-	const [flavorText, setFlavorText] = useState("");
+	const [flavorTexts, setFlavorTexts] = useState("");
 
 	// fetch all data for searched Pokemon and set the info
 	const fetchPokemon = async () => {
@@ -29,8 +29,7 @@ const AppProvider = ({children}) => {
 		try {
 			const response = await fetch(pokemonInfo.species);
 			const data = await response.json();
-			console.log(data.flavor_text_entries[0].flavor_text)
-			setFlavorText(data.flavor_text_entries[0].flavor_text);
+			setFlavorTexts(data.flavor_text_entries);
 		} catch (error) {
 			console.log(error);
 		}
@@ -42,7 +41,7 @@ const AppProvider = ({children}) => {
 
 	return (
 		<AppContext.Provider value={{
-			setSearchTerm, pokemonInfo, flavorText
+			setSearchTerm, pokemonInfo, flavorTexts
 		}}>
 			{children}
 		</AppContext.Provider>
