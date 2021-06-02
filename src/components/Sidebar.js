@@ -1,9 +1,12 @@
 import React, {useState, useContext, useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
 
-const Navbar = () => {
+const Sidebar = () => {
 	return (
-		<nav className="navbar">
+		<nav className="sidebar">
+			<div className="sidebar-logo">
+				<img src="../question.png"/>
+			</div>
 	  		<ul className="nav-links">
 	  			<li>
 	  				<NavLink to="/" exact activeStyle={{textDecoration: "underline"}}>Home</NavLink>
@@ -22,4 +25,4 @@ const Navbar = () => {
 	)
 }
 
-export default Navbar
+export default Sidebar

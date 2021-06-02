@@ -8,10 +8,13 @@ li {
 
 .main-container {
 	background-color: #d5d1d1;
-	height: 95vh;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	left: 225px;
+	position: relative;
+	width: 82%;
 }
 
 .inner-container {
@@ -24,11 +27,7 @@ li {
 	height: 70%;
 }
 
-/*
-======
-Navbar
-======
-*/
+/*** NAVBAR ***/
 .navbar {
 	background-color: black;
 	height: 80px;
@@ -39,12 +38,34 @@ Navbar
 
 .nav-links {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 }
 
-.link-active {
-	text-decoration: underline;
+.sidebar {
+	height: 100%;
+	width: 225px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	background-color: #111;
+	overflow-x: hidden;
+	padding-top: 20px;
 }
+
+.sidebar-logo {
+	background-color: white;
+	display: flex;
+	justify-content: center;
+}
+
+.sidebar-logo img {
+	height: 100px;
+	width: 100px;
+}
+
+/*** NAVBAR ***/
 
 /*** ABOUT PAGE ***/
 .section-container {
@@ -55,8 +76,20 @@ Navbar
 }
 /*** ABOUT PAGE ***/
 
+/*** HOME PAGE ***/
+
+.description {
+
+}
+
+.stock-img img {
+	width: 60px;
+	height: 60px;
+}
 
 /*** HOME PAGE ***/
+
+/*** POKEDEX PAGE ***/
 .pokeinfo-container {
 	display: flex;
 	flex-direction: column;
