@@ -168,3 +168,37 @@ li {
 	cursor: pointer;
 }
 /*** SEARCH ***/
+
+/*** FILTER ***/
+
+.filter-container {
+	background-color: lightblue;
+	width: 100%;
+}
+
+.filter-expand {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	background-color: orange;
+}
+
+.table-container ul{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	flex-grow: auto;
+}
+
+.submit-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.filter-btn {
+	width: 100%;
+	border-radius: 0px;
+}
+
+/*** FILTER ***/
