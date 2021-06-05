@@ -43,6 +43,10 @@ const Filter = () => {
 		fetchTypes();
 	},[])
 
+	async function filterPokemon () {
+
+	}
+
 	return (
 		<div className="filter-container">
 			<div className="filter-expand" id="region-expand">
@@ -51,13 +55,13 @@ const Filter = () => {
 			<div className="table-container" id="region-table">
 				<ul>
 					<li key={999}>
-						<input type="checkbox" key="national"/>
+						<input type="checkbox" checked key="national" onChange={filterPokemon}/>
 						<label htmlFor="national">National</label>
 					</li>
 					{regionList.map((region, id) => {
 						return (
 							<li key={id}>
-								<input type="checkbox" key={region}/>
+								<input type="checkbox" key={region} onChange={filterPokemon}/>
 								<label htmlFor={region}>
 									{capitilize(region)}
 								</label>
@@ -72,13 +76,15 @@ const Filter = () => {
 			<div className="table-container" id="type-table">
 				<ul>
 					<li key={998}>
-						<input type="checkbox" key="all"/>
-						<label htmlFor="all">All Types</label>
+						<input type="checkbox" key="all" checked onChange={filterPokemon}/>
+						<label htmlFor="all">All</label>
 					</li>
-					{typeList.map((type, id) => {
+					{typeList.filter((type) => {
+						return (type !== "unknown" && type !== "shadow");
+					}).map((type, id) => {
 						return (
 							<li key={id}>
-								<input type="checkbox" key={type}/>
+								<input type="checkbox" key={type} onChange={filterPokemon}/>
 								<label htmlFor={type}>
 									{capitilize(type)}
 								</label>

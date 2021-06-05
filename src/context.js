@@ -8,6 +8,7 @@ const AppProvider = ({children}) => {
 	const [pokemonInfo, setPokemonInfo] = useState([]);
 	const [flavorTexts, setFlavorTexts] = useState("");
 	const [filters, setFilters] = useState([]);
+	const [pageNum, setPageNum] = useState(1);
 
 	// fetch all data for searched Pokemon and set the info
 	const fetchPokemon = async () => {
@@ -46,7 +47,7 @@ const AppProvider = ({children}) => {
 
 	return (
 		<AppContext.Provider value={{
-			setSearchTerm, pokemonInfo, flavorTexts, filters, capitilize
+			setSearchTerm, pokemonInfo, flavorTexts, filters, capitilize, pageNum
 		}}>
 			{children}
 		</AppContext.Provider>
