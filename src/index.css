@@ -225,6 +225,30 @@ li {
 
 /*** FILTER ***/
 
+/*** PAGENAV ***/
+
+.pagenav-container {
+	width: 100%;
+}
+
+.pagenav-container ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 30px 0px 0px 0px;
+}
+
+.pagenav-container ul li {
+	margin: 0;
+	width: auto;
+}
+
+.active {
+	opacity: 0.3;
+}
+
+/*** PAGENAV ***/
+
 /*** POKELIST ***/
 
 .pokelist-container {
@@ -258,6 +282,11 @@ li {
 
 .name-container {
 	width: 30%;
+}
+
+.name-container:hover {
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 .type-container {

@@ -10,44 +10,13 @@ const AppProvider = ({children}) => {
 	const [filters, setFilters] = useState([]);
 	const [pageNum, setPageNum] = useState(1);
 
-	// fetch all data for searched Pokemon and set the info
-	const fetchPokemon = async () => {
-		try {
-			const response = await fetch(`${url}pokemon/${searchTerm}/`);
-			const data = await response.json();
-			setPokemonInfo({abilities:data.abilities, name:data.name, id:data.id, height:data.height, weight:data.weight, types:data.types, image:data.sprites.front_default, species:data.species.url});
-		} catch (error) {
-			console.log(error);
-		}
-	}
-
-	useEffect(() => {
-		fetchPokemon();
-	},[searchTerm])
-
-	// fetch the flavortext (description) of the Pokemon
-	// requires another fetch because flavortext is in another URL
-	const fetchFlavorText = async () => {
-		try {
-			const response = await fetch(pokemonInfo.species);
-			const data = await response.json();
-			setFlavorTexts(data.flavor_text_entries);
-		} catch (error) {
-			console.log(error);
-		}
-	}
-
-	useEffect(() => {
-		fetchFlavorText();
-	}, [pokemonInfo])
-
 	const capitilize = (str) => {
 		return str[0].toUpperCase() + str.slice(1);
 	}
 
 	return (
 		<AppContext.Provider value={{
-			setSearchTerm, pokemonInfo, flavorTexts, filters, capitilize, pageNum
+			setSearchTerm, filters, capitilize, pageNum, setPageNum
 		}}>
 			{children}
 		</AppContext.Provider>

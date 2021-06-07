@@ -5,7 +5,7 @@ const regionURL = "https://pokeapi.co/api/v2/region/"
 const typeURL = "https://pokeapi.co/api/v2/type/"
 
 const Filter = () => {
-	const {capitilize} = useGlobalContext();
+	const {capitilize, setFilters} = useGlobalContext();
 	const [regionList, setRegionList] = useState([]);
 	const [typeList, setTypeList] = useState([]);
 
@@ -91,6 +91,29 @@ const Filter = () => {
 							</li>
 						)
 					})}
+				</ul>
+			</div>
+			<div className="filter-expand" id="evolution-expand">
+				Number of Evolutions
+			</div>
+			<div className="table-container" id="evolution-table">
+				<ul>
+					<li key="anyevo">
+						<input type="checkbox" key="anyevo" checked/>
+						<label htmlFor="anyevo">Any</label>
+					</li>
+					<li key="1evo">
+						<input type="checkbox" key="1evo"/>
+						<label htmlFor="1evo">1</label>
+					</li>
+					<li key="2evo">
+						<input type="checkbox" key="2evo"/>
+						<label htmlFor="2evo">2</label>
+					</li>
+					<li key="3evo">
+						<input type="checkbox" key="3evo"/>
+						<label htmlFor="3evo">3</label>
+					</li>
 				</ul>
 			</div>
 			<div className="submit-container">

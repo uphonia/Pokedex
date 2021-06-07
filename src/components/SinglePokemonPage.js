@@ -3,7 +3,24 @@ import { useGlobalContext } from '../context'
 
 const SinglePokemon = () => {
 	const {pokemonInfo, flavorTexts, capitilize} = useGlobalContext();
+	const [flavorTexts, setFlavorTexts] = useState("");
 
+	// fetch the flavortext (description) of the Pokemon
+	// requires another fetch because flavortext is in another URL
+	const fetchFlavorText = async () => {
+		try {
+			const response = await fetch(pokemonInfo.species);
+			const data = await response.json();
+			setFlavorTexts(data.flavor_text_entries);
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	useEffect(() => {
+		fetchFlavorText();
+	}, [])
+	
 	const getFlavorText = (list) => {
 		if (!list) return "";
 		let index = 15;
