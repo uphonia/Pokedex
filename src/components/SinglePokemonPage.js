@@ -1,9 +1,29 @@
-import React from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import { useGlobalContext } from '../context'
+import { useParams, Link } from 'react-router-dom'
+
+import { typeData } from '../data'
+const url = "https://pokeapi.co/api/v2/"
 
 const SinglePokemon = () => {
-	const {pokemonInfo, flavorTexts, capitilize} = useGlobalContext();
+	const {name} = useParams();
+	const {capitilize} = useGlobalContext();
 	const [flavorTexts, setFlavorTexts] = useState("");
+	const [pokemonInfo, setPokemonInfo] = useState([]);
+
+	async function getPokemon() {
+		try {
+			const response = await fetch(`${url}pokemon/${name}/`)
+			const data = await response.json();
+			setPokemonInfo({abilities:data.abilities, name:data.name, id:data.id, height:data.height, weight:data.weight, types:data.types, image:data.sprites.front_default, species:data.species.url})
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	useEffect(() => {
+		getPokemon();
+	}, [name])
 
 	// fetch the flavortext (description) of the Pokemon
 	// requires another fetch because flavortext is in another URL
@@ -19,8 +39,8 @@ const SinglePokemon = () => {
 
 	useEffect(() => {
 		fetchFlavorText();
-	}, [])
-	
+	}, [pokemonInfo])
+
 	const getFlavorText = (list) => {
 		if (!list) return "";
 		let index = 15;
@@ -29,7 +49,6 @@ const SinglePokemon = () => {
 		}
 		return list[index].flavor_text;
 	}
-
 
 	return (
 		<div className="pokeinfo-container">
@@ -44,13 +63,13 @@ const SinglePokemon = () => {
 					<ul>
 						<li>Height: {pokemonInfo.height/10} m</li>
 						<li>Weight: {pokemonInfo.weight/10} kg</li>
-						<li>Abilities: {
+						<li>Abilities: &nbsp;{
 								pokemonInfo.abilities ?
 								pokemonInfo.abilities.map((ability, index) => {
 									return [
 										index > 0 && ", ",
 										<a key={index} href="">
-											{capitilize(ability.ability.name)}
+											{capitilize(ability.ability.name)}&nbsp;
 										</a>
 									]
 								}):""
@@ -59,12 +78,11 @@ const SinglePokemon = () => {
 						<li>Type(s): {
 							pokemonInfo.types ?
 							pokemonInfo.types.map((type, index) => {
-								return [
-									index > 0 && ", ",
-									<a key={index} href="">
+								return (
+									<div key={index} className="type-box" style={{backgroundColor:`${typeData[type.type.name]}`}}>
 										{capitilize(type.type.name)}
-									</a>
-								]
+									</div>
+								)
 							}):""
 						}</li>
 					</ul>

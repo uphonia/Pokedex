@@ -6,14 +6,12 @@ import PageNav from '../components/PageNav'
 
 const Pokedex = () => {
 	return (
-		<div className="main-container">
-			<div className="inner-container">
-				<Search />
-				<Filter />
-				<PageNav />
-				<PokeInfo />
-			</div>
-		</div>
+		<>
+			<Search />
+			<Filter />
+			<PageNav />
+			<PokeInfo />
+		</>
 	)
 }
 

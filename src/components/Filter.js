@@ -1,13 +1,21 @@
 import React, {useState, useContext, useEffect} from 'react'
 import { useGlobalContext } from '../context'
 
+import { regionDexNums } from '../data'
 const regionURL = "https://pokeapi.co/api/v2/region/"
 const typeURL = "https://pokeapi.co/api/v2/type/"
 
+ // https://pokeapi.co/api/v2/type/[type]/pokemon
+
 const Filter = () => {
-	const {capitilize, setFilters} = useGlobalContext();
+	const {capitilize, setStartID, setMaxID} = useGlobalContext();
 	const [regionList, setRegionList] = useState([]);
 	const [typeList, setTypeList] = useState([]);
+
+	// regionList and typeList length are hard-coded for nw
+	const [regionState, setRegionState] = useState(new Array(8).fill(false, 0, 8));
+	const [typeState, setTypeState] = useState(new Array(18).fill(false, 0, 18));
+
 
 	const fetchRegions = async () => {
 		try {
@@ -24,6 +32,7 @@ const Filter = () => {
 
 	useEffect(() => {
 		fetchRegions();
+		return () => {}
 	},[])
 
 	const fetchTypes = async () => {
@@ -41,9 +50,24 @@ const Filter = () => {
 
 	useEffect(() => {
 		fetchTypes();
+		return () => {}
 	},[])
 
-	async function filterPokemon () {
+	async function handleRegionChange(position) {
+		const updatedRegionState = regionState.map((item, index) => {
+			return index === position ? !item : item
+		})
+		setRegionState(updatedRegionState)
+	}
+
+	async function handleTypeChange(position) {
+		const updatedTypeState = typeState.map((item, index) => {
+			return index === position ? !item : item
+		})
+		setTypeState(updatedTypeState)
+	}
+
+	async function setFilters() {
 
 	}
 
@@ -54,14 +78,14 @@ const Filter = () => {
 			</div>
 			<div className="table-container" id="region-table">
 				<ul>
-					<li key={999}>
-						<input type="checkbox" checked key="national" onChange={filterPokemon}/>
-						<label htmlFor="national">National</label>
-					</li>
-					{regionList.map((region, id) => {
+					{regionList.map((region, index) => {
 						return (
-							<li key={id}>
-								<input type="checkbox" key={region} onChange={filterPokemon}/>
+							<li key={index}>
+								<input
+									type="checkbox"
+									onChange={() => handleRegionChange(index)}
+									checked={regionState[index]}
+								/>
 								<label htmlFor={region}>
 									{capitilize(region)}
 								</label>
@@ -75,16 +99,16 @@ const Filter = () => {
 			</div>
 			<div className="table-container" id="type-table">
 				<ul>
-					<li key={998}>
-						<input type="checkbox" key="all" checked onChange={filterPokemon}/>
-						<label htmlFor="all">All</label>
-					</li>
 					{typeList.filter((type) => {
 						return (type !== "unknown" && type !== "shadow");
-					}).map((type, id) => {
+					}).map((type, index) => {
 						return (
-							<li key={id}>
-								<input type="checkbox" key={type} onChange={filterPokemon}/>
+							<li key={index}>
+								<input
+									type="checkbox"
+									onChange={() => handleTypeChange(index)}
+									checked={typeState[index]}
+								/>
 								<label htmlFor={type}>
 									{capitilize(type)}
 								</label>
@@ -93,31 +117,8 @@ const Filter = () => {
 					})}
 				</ul>
 			</div>
-			<div className="filter-expand" id="evolution-expand">
-				Number of Evolutions
-			</div>
-			<div className="table-container" id="evolution-table">
-				<ul>
-					<li key="anyevo">
-						<input type="checkbox" key="anyevo" checked/>
-						<label htmlFor="anyevo">Any</label>
-					</li>
-					<li key="1evo">
-						<input type="checkbox" key="1evo"/>
-						<label htmlFor="1evo">1</label>
-					</li>
-					<li key="2evo">
-						<input type="checkbox" key="2evo"/>
-						<label htmlFor="2evo">2</label>
-					</li>
-					<li key="3evo">
-						<input type="checkbox" key="3evo"/>
-						<label htmlFor="3evo">3</label>
-					</li>
-				</ul>
-			</div>
 			<div className="submit-container">
-				<button className="filter-btn">
+				<button className="filter-btn" onClick={setFilters}>
 					Set Filters
 				</button>
 			</div>

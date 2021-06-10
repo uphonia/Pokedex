@@ -1,6 +1,7 @@
 import React from 'react'
 import { useGlobalContext } from '../context'
 import { typeData } from '../data'
+import { Link } from 'react-router-dom'
 
 const SinglePokemonTab = ({id, image, name, types}) => {
 	const {capitilize} = useGlobalContext();
@@ -11,8 +12,10 @@ const SinglePokemonTab = ({id, image, name, types}) => {
 			<div className="thumbnail-container">
 				<img className="thumbnail" src={image}/>
 			</div>
-			<div className="name-container" onClick="">
-				{capitilize(name)}
+			<div className="name-container">
+				<Link to={`/pokedex/${name}`}>
+					{capitilize(name)}
+				</Link>
 			</div>
 			<div className="type-container">
 				{types.map((type, index) => {

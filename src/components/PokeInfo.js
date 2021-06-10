@@ -1,22 +1,19 @@
 import React, {useState, useContext, useEffect} from 'react'
 import { useGlobalContext } from '../context'
-import { typeData } from '../data'
 import SinglePokemonTab from '../components/SinglePokemonTab'
 
-const url = "https://pokeapi.co/api/v2/"
+const url = "https://pokeapi.co/api/v2/pokemon"
 // get regional pokedex
 const regionalDexURL = "https://pokeapi.com/api/v2/pokedex" // 1 = national dex, 2 = kanto, etc
 
 const PokeInfo = () => {
-	const {capitilize, pageNum, setPageNum} = useGlobalContext();
+	const {capitilize, pageNum, setPageNum, maxID, startID} = useGlobalContext();
 	const [pokeList, setPokeList] = useState([]);
-	const [maxID, setMaxID] = useState(15);
-	const [startID, setStartID] = useState(1);
 
 	async function forFetch() {
 		let fetches = [];
 		for (let i = startID; i <= maxID; i++) {
-			fetches.push(`${url}pokemon/${i}/`)
+			fetches.push(`${url}/${i}/`)
 		}
 		let list = [];
 
@@ -31,7 +28,8 @@ const PokeInfo = () => {
 
 	useEffect(() => {
 		forFetch();
-	}, [])
+		return () => {}
+	}, [pageNum])
 
 	return (
 		<div className="pokelist-container">

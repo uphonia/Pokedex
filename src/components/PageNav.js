@@ -1,34 +1,58 @@
 import React, {useState, useContext, useEffect} from 'react'
 import { useGlobalContext } from '../context'
 
-const maxPageInRow = 15;
+const maxOnPage = 15;
 
 const PageNav = () => {
+    const {maxPageNum, pageNum, setPageNum, startID, setStartID, maxID, setMaxID, numSet, setNumSet, maxSets} = useGlobalContext();
+
+    const [pages, setPages] = useState([...new Array(maxOnPage+1).keys()].slice(1))
 
     const prevSet = () => {
-
+        if (numSet != 1) {
+            setNumSet(numSet-1);
+        }
     }
     const prevPage = () => {
-
+        if (pageNum != 1) {
+            setStartID(startID - maxOnPage);
+            setMaxID(maxID - maxOnPage);
+            setPageNum(pageNum-1);
+        }
     }
     const nextSet = () => {
-
+        if (numSet != maxSets) {
+            setNumSet(numSet+1);
+        }
     }
     const nextPage = () => {
-
+        if (pageNum != maxPageNum) {
+            setStartID(startID + maxOnPage);
+            setMaxID(maxID + maxOnPage);
+            setPageNum(pageNum+1);
+        }
     }
-    const getPage = () => {
 
+    // bug where if we are going to a lower page num, IDs do not decrease
+    const getPage = (event) => {
+        const pageToGo = event.target.innerHTML;
+        const multiplier = pageToGo - pageNum;
+        setStartID(startID + multiplier*maxOnPage);
+        setMaxID(maxID + multiplier*maxOnPage);
+        setPageNum(pageToGo);
     }
 
-    let pageButtons = [];
-    let pageButtonClass = "page-btn";
-    for (let i = 1; i <= maxPageInRow; i++) {
-        if (i == 1) {
-            pageButtonClass = "page-btn active"
-        } else pageButtonClass = "page-btn"
-        pageButtons.push(<li key={i}><button className={pageButtonClass}>{i}</button></li>)
-    }
+    useEffect(() => {
+        console.log("HELLO")
+        let newPagesList = [];
+        // change pages state
+        console.log("start", startID+maxOnPage*(numSet-1))
+        console.log("max", maxOnPage*numSet)
+        for (let i = startID+maxOnPage*(numSet-1); i <= maxOnPage*numSet; i++) {
+            newPagesList.push(i);
+        }
+        setPages(newPagesList); // render when pages is set
+    }, [numSet])
 
     return (
         <div className="pagenav-container">
@@ -39,9 +63,15 @@ const PageNav = () => {
                 <li><button className="page-btn" onClick={prevPage}>
                     {"<"}
                 </button></li>
-                {
-                    pageButtons
-                }
+                {pages.map((index) => {
+                    return (
+                        <li key={index}>
+                            <button className={"page-btn"} onClick={getPage}>
+                                {index}
+                            </button>
+                        </li>
+                    )
+                })}
                 <li><button className="page-btn" onClick={nextPage}>
                     {">"}
                 </button></li>
