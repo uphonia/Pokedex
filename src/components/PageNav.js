@@ -4,20 +4,16 @@ import { useGlobalContext } from '../context'
 const maxOnPage = 15;
 
 const PageNav = () => {
-    const {maxPageNum, pageNum, setPageNum, startID, setStartID, maxID, setMaxID, numSet, setNumSet, maxSets} = useGlobalContext();
+    const {maxPageNum, pageNum, setPageNum, numSet, setNumSet, maxSets, maxPageNumOnPage, setMaxPageNumOnPage, setStartFetchID} = useGlobalContext();
 
+    // sets page numbers to display
     const [pages, setPages] = useState([...new Array(maxOnPage+1).keys()].slice(1))
+
+
 
     const prevSet = () => {
         if (numSet != 1) {
             setNumSet(numSet-1);
-        }
-    }
-    const prevPage = () => {
-        if (pageNum != 1) {
-            setStartID(startID - maxOnPage);
-            setMaxID(maxID - maxOnPage);
-            setPageNum(pageNum-1);
         }
     }
     const nextSet = () => {
@@ -25,32 +21,34 @@ const PageNav = () => {
             setNumSet(numSet+1);
         }
     }
+
+    const prevPage = () => {
+        if (pageNum != 1) {
+            setPageNum(parseInt(pageNum)-1);
+            setStartFetchID((parseInt(pageNum)-2)*15+1)
+        }
+    }
     const nextPage = () => {
         if (pageNum != maxPageNum) {
-            setStartID(startID + maxOnPage);
-            setMaxID(maxID + maxOnPage);
-            setPageNum(pageNum+1);
+            setPageNum(parseInt(pageNum)+1);
+            setStartFetchID(parseInt(pageNum)*15+1)
         }
     }
 
-    // bug where if we are going to a lower page num, IDs do not decrease
     const getPage = (event) => {
-        const pageToGo = event.target.innerHTML;
-        const multiplier = pageToGo - pageNum;
-        setStartID(startID + multiplier*maxOnPage);
-        setMaxID(maxID + multiplier*maxOnPage);
-        setPageNum(pageToGo);
+        const num = event.target.innerHTML;
+        setPageNum(num);
+        setStartFetchID((num-1)*15+1);
     }
 
+    // call when user is going to the next or prev set of pages
     useEffect(() => {
-        console.log("HELLO")
         let newPagesList = [];
-        // change pages state
-        console.log("start", startID+maxOnPage*(numSet-1))
-        console.log("max", maxOnPage*numSet)
-        for (let i = startID+maxOnPage*(numSet-1); i <= maxOnPage*numSet; i++) {
-            newPagesList.push(i);
+        const newMaxPageNum = numSet*15;
+        for (let i = newMaxPageNum-14; i <= newMaxPageNum; i++) {
+            newPagesList.push(i); // pushing index(i) in range
         }
+        setMaxPageNumOnPage(newMaxPageNum);
         setPages(newPagesList); // render when pages is set
     }, [numSet])
 

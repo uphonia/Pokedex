@@ -6,16 +6,18 @@ const url = "https://pokeapi.co/api/v2/"
 const AppProvider = ({children}) => {
 	const [searchTerm, setSearchTerm] = useState("");
 
-	// page navigation states
+	// page navigation states // done
 	const [pageNum, setPageNum] = useState(1);
-	const [maxPageNum, setMaxPageNum] = useState(1);
-	const [maxID, setMaxID] = useState(15);
-	const [startID, setStartID] = useState(1);
-	const [numSet, setNumSet] = useState(1);
-	const [maxSets, setMaxSets] = useState(1);
+	const [maxPageNum, setMaxPageNum] = useState(Math.ceil(898/15));
 
-	const [currID, setCurrID] = useState(1);
-	const [boundaries, setBoundaries] = useState([{start:1, end:898}])
+	const [idList, setIdList] = useState([...new Array(899).keys()].slice(1))
+	const [startFetchID, setStartFetchID] = useState(1);
+
+	const [maxPageNumOnPage, setMaxPageNumOnPage] = useState(15);
+
+	// done
+	const [numSet, setNumSet] = useState(1);
+	const [maxSets, setMaxSets] = useState(Math.ceil(898/225));
 
 	const capitilize = (str) => {
 		return str[0].toUpperCase() + str.slice(1);
@@ -23,7 +25,7 @@ const AppProvider = ({children}) => {
 
 	return (
 		<AppContext.Provider value={{
-			setSearchTerm, capitilize, pageNum, setPageNum, maxID, setMaxID, startID, setStartID, numSet, setNumSet, maxSets, currID, setCurrID, boundaries, setBoundaries
+			setSearchTerm, capitilize, pageNum, setPageNum, numSet, setNumSet, maxSets, maxPageNumOnPage, setMaxPageNumOnPage, idList, setIdList, startFetchID, setStartFetchID
 		}}>
 			{children}
 		</AppContext.Provider>

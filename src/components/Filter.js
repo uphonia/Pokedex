@@ -5,7 +5,7 @@ import { regionDexNums } from '../data'
 const regionURL = "https://pokeapi.co/api/v2/region/"
 const typeURL = "https://pokeapi.co/api/v2/type/"
 
- // https://pokeapi.co/api/v2/type/[type]/pokemon
+ // https://pokeapi.co/api/v2/type/[type]/pokemon/
 
 const Filter = () => {
 	const {capitilize, setStartID, setMaxID} = useGlobalContext();

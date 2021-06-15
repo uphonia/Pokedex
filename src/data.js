@@ -20,13 +20,13 @@ export const typeData = {
 }
 
 export const regionDexNums = {
-    0: {name:"National", start:1, end:898},
-    1: {name:"Kanto", start:1, end:151},
-    2: {name:"Johto", start:152, end:251},
-    3: {name:"Hoenn",start:252, end:386},
-    4: {name:"Sinnoh", start:387, end:493},
-    5: {name:"Unova", start:494, end:649},
-    6: {name:"Kalos", start:650, end:721},
-    7: {name:"Alola", start:722, end:809},
-    8: {name:"Galar", start:810, end:898},
+    "national" : {start:1, end:898},
+    "kanto" : {start:1, end:151},
+    "johto" : {start:152, end:251},
+    "hoenn" : {start:252, end:386},
+    "sinnoh" : {start:387, end:493},
+    "unova" : {start:494, end:649},
+    "kalos" : {start:650, end:721},
+    "alola" : {start:722, end:809},
+    "galar" : {start:810, end:898},
 }
