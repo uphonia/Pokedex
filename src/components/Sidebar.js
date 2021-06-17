@@ -1,11 +1,11 @@
-import React, {useState, useContext, useEffect} from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
 	return (
 		<nav className="sidebar">
 			<div className="sidebar-logo">
-				<img src="../pika.png"/>
+				<img alt="pikachu" src="../pika.png"/>
 			</div>
 	  		<ul className="nav-links">
 	  			<li>

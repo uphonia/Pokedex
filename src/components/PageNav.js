@@ -1,35 +1,33 @@
-import React, {useState, useContext, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useGlobalContext } from '../context'
 
 const maxOnPage = 15;
 
 const PageNav = () => {
-    const {maxPageNum, pageNum, setPageNum, numSet, setNumSet, maxSets, maxPageNumOnPage, setMaxPageNumOnPage, setStartFetchID} = useGlobalContext();
+    const {maxPageNum, pageNum, setPageNum, numSet, setNumSet, maxSets, setMaxPageNumOnPage, setStartFetchID, idList} = useGlobalContext();
 
     // sets page numbers to display
     const [pages, setPages] = useState([...new Array(maxOnPage+1).keys()].slice(1))
 
-
-
     const prevSet = () => {
-        if (numSet != 1) {
+        if (numSet !== 1) {
             setNumSet(numSet-1);
         }
     }
     const nextSet = () => {
-        if (numSet != maxSets) {
+        if (numSet !== maxSets) {
             setNumSet(numSet+1);
         }
     }
 
     const prevPage = () => {
-        if (pageNum != 1) {
+        if (pageNum !== 1) {
             setPageNum(parseInt(pageNum)-1);
             setStartFetchID((parseInt(pageNum)-2)*15+1)
         }
     }
     const nextPage = () => {
-        if (pageNum != maxPageNum) {
+        if (pageNum !== maxPageNum) {
             setPageNum(parseInt(pageNum)+1);
             setStartFetchID(parseInt(pageNum)*15+1)
         }
@@ -46,11 +44,13 @@ const PageNav = () => {
         let newPagesList = [];
         const newMaxPageNum = numSet*15;
         for (let i = newMaxPageNum-14; i <= newMaxPageNum; i++) {
-            newPagesList.push(i); // pushing index(i) in range
+            if (i <= maxPageNum) {
+                newPagesList.push(i); // pushing index(i) in range
+            }
         }
         setMaxPageNumOnPage(newMaxPageNum);
         setPages(newPagesList); // render when pages is set
-    }, [numSet])
+    }, [numSet, idList])
 
     return (
         <div className="pagenav-container">

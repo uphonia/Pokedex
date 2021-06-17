@@ -20,7 +20,6 @@ export const typeData = {
 }
 
 export const regionDexNums = {
-    "national" : {start:1, end:898},
     "kanto" : {start:1, end:151},
     "johto" : {start:152, end:251},
     "hoenn" : {start:252, end:386},

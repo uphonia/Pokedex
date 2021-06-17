@@ -11,7 +11,7 @@ const Home = () => {
 				<p>Things are still a work in progress, but I hope you can follow along my journey in building this project!</p>
 			</div>
 			<div className="stock-img">
-				<img src="../pokeball2.png"/>
+				<img alt="pokeball" src="../pokeball2.png"/>
 			</div>
 		</>
 	)

@@ -4,9 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './pages/Home'
 import Pokedex from './pages/Pokedex'
 import TypeChart from './pages/TypeChart'
-import Teambuilder from './pages/Teambuilder'
 // components
-import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import SinglePokemonPage from './components/SinglePokemonPage'
 
@@ -28,9 +26,6 @@ function App() {
 						</Route>
 						<Route exact path="/typechart">
 							<TypeChart />
-						</Route>
-						<Route exact path="/teambuilder">
-							<Teambuilder />
 						</Route>
 					</Switch>
 				</div>

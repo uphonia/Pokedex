@@ -9,6 +9,10 @@ li {
 	display: flex;
 }
 
+button:hover {
+	cursor: pointer;
+}
+
 .main-container {
 	height: 100vh;
 	display: flex;
@@ -177,6 +181,10 @@ li {
 .table-container ul li {
 	margin-left: 40px;
 	width: 100px;
+}
+
+.table-container ul li input:hover {
+	cursor: pointer;
 }
 
 .submit-container {

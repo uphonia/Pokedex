@@ -10,7 +10,7 @@ const SinglePokemonTab = ({id, image, name, types}) => {
 		<li key={id} className="pokeinfo-tab">
 			<div className="id-container">#{id}</div>
 			<div className="thumbnail-container">
-				<img className="thumbnail" src={image}/>
+				<img className="thumbnail" alt={name} src={image}/>
 			</div>
 			<div className="name-container">
 				<Link to={`/pokedex/${name}`}>

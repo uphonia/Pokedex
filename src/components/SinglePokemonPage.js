@@ -1,6 +1,6 @@
-import React, {useState, useContext, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useGlobalContext } from '../context'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import { typeData } from '../data'
 const url = "https://pokeapi.co/api/v2/"

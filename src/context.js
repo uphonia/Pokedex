@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from 'react'
+import React, {useState, useContext} from 'react'
 
 const AppContext = React.createContext()
 const url = "https://pokeapi.co/api/v2/"
@@ -25,7 +25,7 @@ const AppProvider = ({children}) => {
 
 	return (
 		<AppContext.Provider value={{
-			setSearchTerm, capitilize, pageNum, setPageNum, numSet, setNumSet, maxSets, maxPageNumOnPage, setMaxPageNumOnPage, idList, setIdList, startFetchID, setStartFetchID
+			setSearchTerm, capitilize, pageNum, setPageNum, numSet, setNumSet, maxSets, setMaxSets, maxPageNumOnPage, setMaxPageNumOnPage, idList, setIdList, startFetchID, setStartFetchID, setMaxPageNum, maxPageNum
 		}}>
 			{children}
 		</AppContext.Provider>
