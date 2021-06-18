@@ -3,9 +3,7 @@ import { useGlobalContext } from '../context'
 
 import { regionDexNums } from '../data'
 const regionURL = "https://pokeapi.co/api/v2/region/"
-const typeURL = "https://pokeapi.co/api/v2/type/"
-
- // https://pokeapi.co/api/v2/type/[type]/pokemon/
+const typeURL = "https://pokeapi.co/api/v2/type"
 
 const Filter = () => {
 	const {capitilize, setIdList, setMaxPageNum, setMaxSets} = useGlobalContext();
@@ -31,6 +29,7 @@ const Filter = () => {
 
 	useEffect(() => {
 		fetchRegions();
+		fetchTypes();
 		return () => {}
 	},[])
 
@@ -46,11 +45,6 @@ const Filter = () => {
 			console.log(error);
 		}
 	}
-
-	useEffect(() => {
-		fetchTypes();
-		return () => {}
-	},[])
 
 	async function handleRegionChange(position) {
 		const updatedRegionState = regionState.map((item, index) => {
@@ -70,17 +64,71 @@ const Filter = () => {
 		return [...Array(size).keys()].map(i => i + start)
 	}
 
-	// set filters selected by user; ONLY REGION FILTER FOR NOW
-	const setFilters = () => {
-		let newIdList = [];
-		// get all regions we want and add to idList
+	function inBoundary(id, boundaries) {
+		for (let i = 0; i < boundaries.length; i++) {
+			console.log(id, boundaries[i].start, boundaries[i].end)
+			if (id >= boundaries[i].start && id <= boundaries[i].end) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	// set filters selected by user
+	const setFilters = async () => {
+		// get all boundaries for regions
+		let boundaries = [];
+		let lowest = 898;
+		let highest = 0;
 		for (let i = 0; i < regionState.length; i++) {
 			if (regionState[i] === true) {
-				const region = regionList[i]; // get name of region
-				const start = regionDexNums[region].start;
-				const end = regionDexNums[region].end;
-				const regionIDs = range(end-start+1, start);
-				newIdList = newIdList.concat(regionIDs);
+				const entry = regionDexNums[regionList[i]];
+				boundaries.push(entry);
+				if (entry.start < lowest) lowest = entry.start;
+				if (entry.end > highest) highest = entry.end;
+			}
+		}
+
+		let newIdList = [];
+		// get all IDs of pokemon with specific typing selected
+		for (let i = 0; i < typeState.length; i++) {
+			if (typeState[i] === true) {
+				const type = typeList[i];
+				// get all pokemon with this type
+				try {
+					const fetchTyping = await fetch(`${typeURL}/${type}`);
+					const fetchTypingData = await fetchTyping.json();
+					const pokeTypeList = fetchTypingData.pokemon;
+					for (let j = 0; j < pokeTypeList.length; j++) {
+						const pokeURL = pokeTypeList[j].pokemon.url;
+						try {
+							const idFetch = await fetch(pokeURL);
+							const idFetchData = await idFetch.json();
+							const pokeID = idFetchData.id;
+							if (pokeID >= lowest && pokeID <= highest) {
+								if (inBoundary(pokeID, boundaries) === true) {
+									newIdList.push(pokeID);
+								}
+							}
+						} catch (error) {console.log(error)}
+					}
+				} catch (error) {
+					console.log(error)
+				}
+			}
+		}
+
+		// do only region handling if no type is being filtered
+		if (newIdList.length === 0) {
+			// get all regions we want and add to idList
+			for (let i = 0; i < regionState.length; i++) {
+				if (regionState[i] === true) {
+					const region = regionList[i]; // get name of region
+					const start = regionDexNums[region].start;
+					const end = regionDexNums[region].end;
+					const regionIDs = range(end-start+1, start);
+					newIdList = newIdList.concat(regionIDs);
+				}
 			}
 		}
 

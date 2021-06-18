@@ -41,10 +41,11 @@ const PageNav = () => {
 
     // call when user is going to the next or prev set of pages
     useEffect(() => {
+        const tempMaxPageNum = Math.ceil(idList.length/15);
         let newPagesList = [];
         const newMaxPageNum = numSet*15;
         for (let i = newMaxPageNum-14; i <= newMaxPageNum; i++) {
-            if (i <= maxPageNum) {
+            if (i <= tempMaxPageNum) {
                 newPagesList.push(i); // pushing index(i) in range
             }
         }

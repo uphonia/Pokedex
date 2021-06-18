@@ -11,7 +11,7 @@ npm install
 ## Features / Upcoming Features
 - View of a singular Pokemon entry
 - Fully implemented page navigation of a list of Pokemon entries
-- Filter system for a list of Pokemon (regional filter done, type filter in progress)
+- Filter system for a list of Pokemon (filter by region & type)
 - Searching (in progress)
 
 ## Project Status

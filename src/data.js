@@ -19,6 +19,27 @@ export const typeData = {
     "flying": "#ceaee3"
 }
 
+export const typeIndex = {
+    0:"fire",
+    1:"normal",
+    2:"fighting",
+    3:"poison",
+    4:"ground",
+    5:"rock",
+    6:"bug",
+    7:"ghost",
+    8:"steel",
+    9:"water",
+    10:"grass",
+    11:"electric",
+    12:"psychic",
+    13:"ice",
+    14:"dragon",
+    15:"dark",
+    16:"fairy",
+    17:"flyingtype"
+}
+
 export const regionDexNums = {
     "kanto" : {start:1, end:151},
     "johto" : {start:152, end:251},
