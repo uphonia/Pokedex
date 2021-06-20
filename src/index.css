@@ -344,3 +344,8 @@ button:hover {
 	height: 20%;
 }
 /*** HOME PAGE ***/
+
+.loading {
+	margin-top: 50px;
+	font-family: "Carme", sans-serif;
+}

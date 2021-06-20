@@ -2,7 +2,7 @@ import React from 'react'
 import { useGlobalContext } from '../context'
 
 const Search = () => {
-	const {setSearchTerm} = useGlobalContext();
+	const {setSearchTerm, setLoading} = useGlobalContext();
 	const searchValue = React.useRef('');
 
 	React.useEffect(() => {
@@ -13,6 +13,7 @@ const Search = () => {
 		e.preventDefault();
 		setSearchTerm(searchValue.current.value);
 		searchValue.current.value = "";
+		setLoading(true);
 	}
 
 	return (

@@ -6,7 +6,7 @@ const regionURL = "https://pokeapi.co/api/v2/region/"
 const typeURL = "https://pokeapi.co/api/v2/type"
 
 const Filter = () => {
-	const {capitilize, setIdList, setMaxPageNum, setMaxSets} = useGlobalContext();
+	const {capitilize, setIdList, setMaxPageNum, setMaxSets, setLoading, setLoadingText} = useGlobalContext();
 	const [regionList, setRegionList] = useState([]);
 	const [typeList, setTypeList] = useState([]);
 
@@ -76,6 +76,8 @@ const Filter = () => {
 
 	// set filters selected by user
 	const setFilters = async () => {
+		setLoading(true);
+		setLoadingText("Loading...");
 		// get all boundaries for regions
 		let boundaries = [];
 		let lowest = 898;

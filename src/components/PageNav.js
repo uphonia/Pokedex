@@ -4,7 +4,10 @@ import { useGlobalContext } from '../context'
 const maxOnPage = 15;
 
 const PageNav = () => {
-    const {maxPageNum, pageNum, setPageNum, numSet, setNumSet, maxSets, setMaxPageNumOnPage, setStartFetchID, idList} = useGlobalContext();
+    const {maxPageNum, pageNum, setPageNum, numSet, setNumSet, maxSets, setMaxPageNumOnPage, setStartFetchID, idList, setLoading} = useGlobalContext();
+
+    // set current page number active and keep track
+    const [currentPage, setCurrentPage] = useState(1);
 
     // sets page numbers to display
     const [pages, setPages] = useState([...new Array(maxOnPage+1).keys()].slice(1))
@@ -23,13 +26,17 @@ const PageNav = () => {
     const prevPage = () => {
         if (pageNum !== 1) {
             setPageNum(parseInt(pageNum)-1);
-            setStartFetchID((parseInt(pageNum)-2)*15+1)
+            setStartFetchID((parseInt(pageNum)-2)*15+1);
+            setLoading(true);
+            setCurrentPage(parseInt(pageNum)-1);
         }
     }
     const nextPage = () => {
         if (pageNum !== maxPageNum) {
             setPageNum(parseInt(pageNum)+1);
-            setStartFetchID(parseInt(pageNum)*15+1)
+            setStartFetchID(parseInt(pageNum)*15+1);
+            setLoading(true);
+            setCurrentPage(parseInt(pageNum)+1);
         }
     }
 
@@ -37,6 +44,8 @@ const PageNav = () => {
         const num = event.target.innerHTML;
         setPageNum(num);
         setStartFetchID((num-1)*15+1);
+        setLoading(true);
+        setCurrentPage(num);
     }
 
     // call when user is going to the next or prev set of pages
@@ -65,7 +74,7 @@ const PageNav = () => {
                 {pages.map((index) => {
                     return (
                         <li key={index}>
-                            <button className={"page-btn"} onClick={getPage}>
+                            <button className={index == currentPage ? "page-btn active" : "page-btn"} onClick={getPage}>
                                 {index}
                             </button>
                         </li>
