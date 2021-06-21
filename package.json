@@ -2,7 +2,7 @@
   "name": "pokepedia",
   "homepage": "https://uphonia.github.io/pokepedia/",
   "version": "1.0.0",
-  "description": "React project emulating the Pokedex from Pokemon and other features used for competitive battling",
+  "description": "Personal rendition of a Pokemon encyclopedia created with React",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
@@ -12,10 +12,6 @@
     "dev": "nodemon",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uphonia/Pokepedia.git"
   },
   "author": "Angela Wu (uphonia)",
   "license": "ISC",
