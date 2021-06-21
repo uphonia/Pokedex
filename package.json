@@ -19,10 +19,6 @@
   },
   "author": "Angela Wu (uphonia)",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/uphonia/Pokepedia/issues"
-  },
-  "homepage": "https://github.com/uphonia/Pokepedia#readme",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -36,7 +32,6 @@
   "browserslist": {
     "production": [
       ">0.2%",
-      "not dead",
       "not op_mini all"
     ],
     "development": [
