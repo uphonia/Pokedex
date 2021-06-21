@@ -1,13 +1,13 @@
 {
-  "main.css": "/uphonia/Pokedex/static/css/main.c1b39e53.chunk.css",
-  "main.js": "/uphonia/Pokedex/static/js/main.d39908a5.chunk.js",
-  "main.js.map": "/uphonia/Pokedex/static/js/main.d39908a5.chunk.js.map",
-  "runtime~main.js": "/uphonia/Pokedex/static/js/runtime~main.eb67180f.js",
-  "runtime~main.js.map": "/uphonia/Pokedex/static/js/runtime~main.eb67180f.js.map",
-  "static/js/2.1f03838c.chunk.js": "/uphonia/Pokedex/static/js/2.1f03838c.chunk.js",
-  "static/js/2.1f03838c.chunk.js.map": "/uphonia/Pokedex/static/js/2.1f03838c.chunk.js.map",
-  "index.html": "/uphonia/Pokedex/index.html",
-  "precache-manifest.c1dcf8631f4e948bace3382189ff8cf2.js": "/uphonia/Pokedex/precache-manifest.c1dcf8631f4e948bace3382189ff8cf2.js",
-  "service-worker.js": "/uphonia/Pokedex/service-worker.js",
-  "static/css/main.c1b39e53.chunk.css.map": "/uphonia/Pokedex/static/css/main.c1b39e53.chunk.css.map"
+  "main.css": "/uphonia/Pokepedia/static/css/main.c1b39e53.chunk.css",
+  "main.js": "/uphonia/Pokepedia/static/js/main.d39908a5.chunk.js",
+  "main.js.map": "/uphonia/Pokepedia/static/js/main.d39908a5.chunk.js.map",
+  "runtime~main.js": "/uphonia/Pokepedia/static/js/runtime~main.1a09b4fa.js",
+  "runtime~main.js.map": "/uphonia/Pokepedia/static/js/runtime~main.1a09b4fa.js.map",
+  "static/js/2.1f03838c.chunk.js": "/uphonia/Pokepedia/static/js/2.1f03838c.chunk.js",
+  "static/js/2.1f03838c.chunk.js.map": "/uphonia/Pokepedia/static/js/2.1f03838c.chunk.js.map",
+  "index.html": "/uphonia/Pokepedia/index.html",
+  "precache-manifest.16c0e9e1632648c3f8bc28be82530fb5.js": "/uphonia/Pokepedia/precache-manifest.16c0e9e1632648c3f8bc28be82530fb5.js",
+  "service-worker.js": "/uphonia/Pokepedia/service-worker.js",
+  "static/css/main.c1b39e53.chunk.css.map": "/uphonia/Pokepedia/static/css/main.c1b39e53.chunk.css.map"
 }
