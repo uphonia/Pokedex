@@ -1,5 +1,6 @@
 import React from 'react'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
+import {HashRouter} from 'react-router-dom'
 // pages
 import Home from './pages/Home'
 import Pokedex from './pages/Pokedex'
