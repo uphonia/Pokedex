@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/uphonia/Pokepedia/precache-manifest.c9390f96bd37dd6b7b433bc5cc29bf30.js"
+  "/pokepedia/precache-manifest.21241858e3991aaf233b62887ad3a780.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/uphonia/Pokepedia/index.html", {
+workbox.routing.registerNavigationRoute("/pokepedia/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });
