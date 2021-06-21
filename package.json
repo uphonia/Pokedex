@@ -1,6 +1,6 @@
 {
   "name": "pokepedia",
-  "homepage": "https://uphonia.github.io/pokepedia/"
+  "homepage": "https://uphonia.github.io/pokepedia/",
   "version": "1.0.0",
   "description": "React project emulating the Pokedex from Pokemon and other features used for competitive battling",
   "main": "index.js",
