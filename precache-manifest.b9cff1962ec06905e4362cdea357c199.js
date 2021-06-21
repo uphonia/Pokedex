@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/pokepedia/static/js/2.1f03838c.chunk.js"
   },
   {
-    "revision": "7baeb5f72c188ae60dc4063baaf47951",
+    "revision": "ecf402614b29021edc9d52d1bba254c3",
     "url": "/pokepedia/index.html"
   }
 ];
