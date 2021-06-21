@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uphonia/Pokedex.git"
+    "url": "git+https://github.com/uphonia/Pokepedia.git"
   },
   "author": "Angela Wu (uphonia)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/uphonia/Pokedex/issues"
+    "url": "https://github.com/uphonia/Pokepedia/issues"
   },
-  "homepage": "https://github.com/uphonia/Pokedex#readme",
+  "homepage": "https://github.com/uphonia/Pokepedia#readme",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
