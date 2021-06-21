@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 // pages
 import Home from './pages/Home'
 import Pokedex from './pages/Pokedex'
@@ -10,7 +10,7 @@ import SinglePokemonPage from './components/SinglePokemonPage'
 
 function App() {
 	return (
-		<Router>
+		<HashRouter>
 			<Sidebar />
 			<div className="main-container">
 				<div className="inner-container">
@@ -30,7 +30,7 @@ function App() {
 					</Switch>
 				</div>
 			</div>
-		</Router>
+		</HashRouter>
 	);
 }
 
