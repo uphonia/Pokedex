@@ -5,7 +5,7 @@ const Sidebar = () => {
 	return (
 		<nav className="sidebar">
 			<div className="sidebar-logo">
-				<img alt="pikachu" src="../pika.png"/>
+				<img alt="pikachu" src="../pokeball4.png"/>
 			</div>
 	  		<ul className="nav-links">
 	  			<li>

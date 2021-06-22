@@ -18,11 +18,9 @@ const PokeInfo = () => {
 			const data = await response.json();
 			let list = [];
 			list.push({abilities:data.abilities, name:data.name, id:data.id, height:data.height, weight:data.weight, types:data.types, image:data.sprites.front_default, species:data.species.url})
-			console.log(data, list)
 			setPokeList(list);
 			setLoading(false);
 		} catch (error) {
-			console.log("error", error)
 			setLoadingText("No matching results.");
 		}
 	}

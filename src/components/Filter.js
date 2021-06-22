@@ -1,50 +1,25 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { useGlobalContext } from '../context'
 
-import { regionDexNums } from '../data'
-const regionURL = "https://pokeapi.co/api/v2/region/"
+import { regionDexNums, typeData } from '../data'
 const typeURL = "https://pokeapi.co/api/v2/type"
 
 const Filter = () => {
 	const {capitilize, setIdList, setMaxPageNum, setMaxSets, setLoading, setLoadingText} = useGlobalContext();
-	const [regionList, setRegionList] = useState([]);
-	const [typeList, setTypeList] = useState([]);
+
+	const typeList = [];
+	for (let key in typeData) {
+		typeList.push(key);
+	}
+
+	const regionList = [];
+	for (let key in regionDexNums) {
+		regionList.push(key);
+	}
 
 	// regionList and typeList length are hard-coded for nw
 	const [regionState, setRegionState] = useState(new Array(8).fill(false, 0, 8));
 	const [typeState, setTypeState] = useState(new Array(18).fill(false, 0, 18));
-
-	const fetchRegions = async () => {
-		try {
-			const response = await fetch(`${regionURL}`);
-			const data = await response.json();
-			const list = data.results.map((region) => {
-				return region.name
-			});
-			setRegionList(list);
-		} catch (error) {
-			console.log(error);
-		}
-	}
-
-	useEffect(() => {
-		fetchRegions();
-		fetchTypes();
-		return () => {}
-	},[])
-
-	const fetchTypes = async () => {
-		try {
-			const response = await fetch(`${typeURL}`);
-			const data = await response.json();
-			const list = data.results.map((type) => {
-				return type.name
-			});
-			setTypeList(list);
-		} catch (error) {
-			console.log(error);
-		}
-	}
 
 	async function handleRegionChange(position) {
 		const updatedRegionState = regionState.map((item, index) => {
@@ -157,7 +132,7 @@ const Filter = () => {
 									onChange={() => handleRegionChange(index)}
 									checked={regionState[index]}
 								/>
-								<label htmlFor={region}>
+								<label className="filter-label" htmlFor={region}>
 									{capitilize(region)}
 								</label>
 							</li>
@@ -180,7 +155,7 @@ const Filter = () => {
 									onChange={() => handleTypeChange(index)}
 									checked={typeState[index]}
 								/>
-								<label htmlFor={type}>
+								<label className="filter-label" htmlFor={type}>
 									{capitilize(type)}
 								</label>
 							</li>

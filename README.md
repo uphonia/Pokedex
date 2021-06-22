@@ -1,6 +1,6 @@
-# Pokedex
+# Pokepedia
 
-React project emulating the Pokedex from the Pokemon series, with gained inspiration from Bulbapedia (https://bulbapedia.bulbagarden.net/wiki/Main_Page)
+Personal rendition of a Pokemon encyclopedia created with React. Inspired by Bulbapedia (https://bulbapedia.bulbagarden.net/wiki/Main_Page)
 
 ## Installation
 Use npm to set up the project
@@ -8,11 +8,16 @@ Use npm to set up the project
 npm install
 ```
 
-## Features / Upcoming Features
+## Features
 - View of a singular Pokemon entry
-- Fully implemented page navigation of a list of Pokemon entries
-- Filter system for a list of Pokemon (filter by region & type)
-- Searching (in progress)
+- Fully implemented page navigation through a list of Pokemon entries
+- Pokemon filter system; filter by region &/or type
+- Basic searching
+
+## Future Features and Improvements
+- More complicated searching
+- Add info on Pokemon typing and abilities
+- Better optimization of API fetching
 
 ## Project Status
-Things are still a work in progress, but I hope you can follow along my journey in building this project!
+The main features of the project are functioning properly. Other than that, additional features and changes are still a work in progress. I hope you can follow along my journey in making additions and improvements!

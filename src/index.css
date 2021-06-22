@@ -3,7 +3,7 @@ ul {
 }
 
 li {
-	color: white;
+	/* color: white; */
 	font-family: "Carme", sans-serif;
 	font-size: 18px;
 	display: flex;
@@ -51,7 +51,11 @@ button:hover {
 	display: block;
 	text-align: center;
 	margin-top: 20px;
+	background-color: #716d6d;
+	color: white;
+	padding: 5px;
 }
+
 .sidebar {
 	height: 100%;
 	width: 225px;
@@ -60,7 +64,7 @@ button:hover {
 	top: 0;
 	left: 0;
 	bottom: 0;
-	background-color: #b22;
+	background-color: #738a88;
 	overflow-x: hidden;
 	padding-top: 20px;
 }
@@ -68,12 +72,12 @@ button:hover {
 .sidebar-logo {
 	display: flex;
 	justify-content: center;
+	margin-top: 20px;
 }
 
 .sidebar-logo img {
 	height: 150px;
 	width: 150px;
-	margin-right: 10px;
 }
 
 /*** NAVBAR ***/
@@ -92,19 +96,33 @@ button:hover {
 .home-title h1{
 	color: #777272;
 	font-family: 'Verdana';
-	font-size: 90px;
+	font-size: 50px;
 	font-weight: bold;
 	letter-spacing: -1px;
 	line-height: 1;
 	text-align: center;
 }
 
+hr.solid {
+	margin-top: 40px;
+	border-top: 2px solid black;
+	width: 7%;
+}
+
 .description {
 	margin-top: 20px;
-	margin-bottom: 20px;
 	font-size: 20px;
 	font-family: "carme", sans-serif;
 	line-height: 25px;
+}
+
+.footer {
+	margin-top: 10px;
+}
+
+.footer p {
+	text-align: center;
+	font-size: 16px;
 }
 
 .stock-img img {
@@ -144,7 +162,7 @@ button:hover {
 /*** FILTER ***/
 
 .filter-container {
-	background-color: lightblue;
+	background-color: rgb(191, 191, 173);
 	width: 100%;
 }
 
@@ -152,7 +170,7 @@ button:hover {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	background-color: orange;
+	background-color: #f7c466;
 	font-family: "Verdana";
 	align-items: center;
 }
@@ -181,6 +199,10 @@ button:hover {
 .table-container ul li {
 	margin-left: 40px;
 	width: 100px;
+}
+
+.filter-label {
+	font-size: 16px;
 }
 
 .table-container ul li input:hover {
@@ -218,7 +240,7 @@ button:hover {
 }
 
 .active {
-	opacity: 0.3;
+	opacity: 0.6;
 }
 
 /*** PAGENAV ***/

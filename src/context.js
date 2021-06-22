@@ -1,7 +1,6 @@
 import React, {useState, useContext} from 'react'
 
 const AppContext = React.createContext()
-const url = "https://pokeapi.co/api/v2/"
 
 const AppProvider = ({children}) => {
 	const [searchTerm, setSearchTerm] = useState("");

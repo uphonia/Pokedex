@@ -74,7 +74,7 @@ const PageNav = () => {
                 {pages.map((index) => {
                     return (
                         <li key={index}>
-                            <button className={index == currentPage ? "page-btn active" : "page-btn"} onClick={getPage}>
+                            <button className={index === currentPage ? "page-btn active" : "page-btn"} onClick={getPage}>
                                 {index}
                             </button>
                         </li>

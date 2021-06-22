@@ -7,7 +7,7 @@ const SinglePokemonTab = ({id, image, name, types}) => {
 	const {capitilize} = useGlobalContext();
 
 	return (
-		<li key={id} className="pokeinfo-tab">
+		<li key={id} className="pokeinfo-tab" style={{backgroundColor:(id%2===0)?"#c8c8b9":"none"}}>
 			<div className="id-container">#{id}</div>
 			<div className="thumbnail-container">
 				<img className="thumbnail" alt={name} src={image}/>
