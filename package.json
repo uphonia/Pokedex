@@ -1,6 +1,6 @@
 {
   "name": "pokepedia",
-  "homepage": "https://uphonia.github.io/pokepedia/",
+  "homepage": "https://uphonia.github.io/Pokepedia/",
   "version": "1.0.0",
   "description": "Personal rendition of a Pokemon encyclopedia created with React",
   "main": "index.js",
