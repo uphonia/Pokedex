@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { FaGithub} from 'react-icons/fa'
 const Home = () => {
 	return (
 		<>
@@ -13,6 +14,9 @@ const Home = () => {
 			<div className="footer">
 				<p>Things are still a work in progress, but I hope you can follow along my journey in building this project!</p>
 			</div>
+			<a href="https://github.com/uphonia/Pokepedia">
+				<FaGithub style={{height:"30px", width:"30px"}}/>
+			</a>
 		</>
 	)
 }

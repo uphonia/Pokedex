@@ -118,6 +118,8 @@ hr.solid {
 
 .footer {
 	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
 }
 
 .footer p {
@@ -306,7 +308,7 @@ hr.solid {
 .pokeinfo-container {
 	display: flex;
 	flex-direction: column;
-	background-color: rgba(111, 94, 94, 0.35);
+	background-color: rgba(191, 191, 173, 0.6);
 	padding: 0 50px 20px 50px;
 }
 
@@ -343,7 +345,7 @@ hr.solid {
 	flex-direction: column;
 	width: 60%;
 	align-items: center;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(83, 83, 83, 0.3);
 	justify-content: center;
 }
 

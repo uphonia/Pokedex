@@ -42,6 +42,7 @@ const PageNav = () => {
 
     const getPage = (event) => {
         const num = event.target.innerHTML;
+        if (num === pageNum) return;
         setPageNum(num);
         setStartFetchID((num-1)*15+1);
         setLoading(true);
